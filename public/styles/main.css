@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+}
+
+#divisionOne{
+    background-color: aqua;
+}
+#divisionTwo{
+    background-color: blueviolet;
+}
+#divisionThree{
+    background-color: chocolate;
+}
