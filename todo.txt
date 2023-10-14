@@ -1,0 +1,7 @@
+[]Remember to add disclaimer that this project is not intended as a financial instrument, should not be used for financial advice,
+ and is solely made for my individual educational purposes. preferably in github description and readme
+ 
+
+[]create backend app
+[]create styles 
+[]create ejs 

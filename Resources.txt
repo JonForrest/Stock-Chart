@@ -1,0 +1,8 @@
+
+https://www.alphavantage.co/documentation/
+https://getbootstrap.com/docs/5.3/examples/dashboard/
+https://www.chartjs.org/docs/latest/getting-started/
+https://www.youtube.com/watch?v=fqARSwfsV9w
+
+be sure to use the cdn for the chart.js
+https://github.com/JonForrest/Stock-Chart.git
