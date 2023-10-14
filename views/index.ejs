@@ -12,13 +12,14 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="container">
+  <body class="adjust">
+    
     <%# Division One %>
-    <div id="divisionOne">
+    <div id="divisionOne" class="division">
       <%# Div Per Stock Symbol %>
       <div>
         <%# Div for line graph %>
-        <canvas id="myChartOne"></canvas>
+        <canvas id="myChartOne" class="chart"></canvas>
       </div>
       <div><%# Div for options %></div>
 
@@ -26,11 +27,11 @@
     </div>
 
     <%# Division Two %>
-    <div id="divisionTwo">
+    <div id="divisionTwo" class="division">
       <%# Div Per Stock Symbol %>
       <div>
         <%# Div for line graph %>
-        <canvas id="myChartTwo"></canvas>
+        <canvas id="myChartTwo" class="chart"></canvas>
       </div>
       <div><%# Div for options %></div>
 
@@ -38,17 +39,17 @@
     </div>
 
     <%# Division Three %>
-    <div id="divisionThree">
+    <div id="divisionThree" class="division">
       <%# Div Per Stock Symbol %>
       <div>
         <%# Div for line graph %>
-        <canvas id="myChartThree"></canvas>
+        <canvas id="myChartThree" class="chart"></canvas>
       </div>
       <div><%# Div for options %></div>
 
       <%# Write for each loop for various data sets %>
     </div>
-
+    
     <%# put your script tags below this config file for github %>
     <script type="text/javascript" src="config.js"></script>
     <script
