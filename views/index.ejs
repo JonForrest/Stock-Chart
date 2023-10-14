@@ -17,11 +17,12 @@
     <%# Division One %>
     <div id="divisionOne" class="division">
       <%# Div Per Stock Symbol %>
-      <div>
+      <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChartOne" class="chart"></canvas>
+        <canvas id="myChart" ></canvas>
       </div>
-      <div><%# Div for options %></div>
+      <div class="optionPanel"><%# Div for options %>
+    </div>
 
       <%# Write for each loop for various data sets %>
     </div>
@@ -29,11 +30,12 @@
     <%# Division Two %>
     <div id="divisionTwo" class="division">
       <%# Div Per Stock Symbol %>
-      <div>
+      <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChartTwo" class="chart"></canvas>
+        <canvas id="myChartTwo" ></canvas>
       </div>
-      <div><%# Div for options %></div>
+      <div class="optionPanel"><%# Div for options %>
+    </div>
 
       <%# Write for each loop for various data sets %>
     </div>
@@ -41,22 +43,44 @@
     <%# Division Three %>
     <div id="divisionThree" class="division">
       <%# Div Per Stock Symbol %>
-      <div>
+      <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChartThree" class="chart"></canvas>
+        <canvas id="myChartThree" ></canvas>
       </div>
-      <div><%# Div for options %></div>
+      <div class="optionPanel"><%# Div for options %>
+    </div>
 
       <%# Write for each loop for various data sets %>
     </div>
     
     <%# put your script tags below this config file for github %>
+    
     <script type="text/javascript" src="config.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"
-      integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+
+
   </body>
 </html>

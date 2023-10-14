@@ -10,19 +10,35 @@
 }
 
 .division {
+    display:flex;
+    flex-direction: column;
   width: 32%;
   flex-basis: 1;
   margin: 0;
   padding: 0;
   border: 0;
 }
+.chartContainer{
+    width:100%;
+    height: 50vh;
+    background-color: azure;
+    border-radius: 10%;
+}
+.optionPanel{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(9, 255, 0);
+    width: 100%;
+    height:10vh;
+
+}
 
 #divisionOne {
-  background-color: aqua;
+  
 }
 #divisionTwo {
-  background-color: blueviolet;
+  
 }
 #divisionThree {
-  background-color: chocolate;
+  
 }

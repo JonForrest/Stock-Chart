@@ -9,15 +9,20 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
+
+    
+    var responseData="Yeehaw";
+
+    
     try {
       
-      res.render("index.ejs", { });
+      res.render("index.ejs", {x:responseData });
     } catch (error) {
       console.error("Failed to make request:", error.message);
 
     }
   });
-  
+
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
