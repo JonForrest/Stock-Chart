@@ -3,6 +3,10 @@ https://www.alphavantage.co/documentation/
 https://getbootstrap.com/docs/5.3/examples/dashboard/
 https://www.chartjs.org/docs/latest/getting-started/
 https://www.youtube.com/watch?v=fqARSwfsV9w
+https://www.youtube.com/watch?v=T33NN_pPeNI
 
 be sure to use the cdn for the chart.js
 https://github.com/JonForrest/Stock-Chart.git
+
+
+https://stackoverflow.com/questions/28603658/can-a-js-script-get-a-variable-written-in-a-ejs-context-page-within-the-same-fil

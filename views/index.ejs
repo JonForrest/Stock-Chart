@@ -19,7 +19,7 @@
       <%# Div Per Stock Symbol %>
       <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChart" ></canvas>
+        <canvas id="myChartOne" ></canvas>
       </div>
       <div class="optionPanel"><%# Div for options %>
     </div>
@@ -58,27 +58,34 @@
     <script type="text/javascript" src="config.js"></script>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('myChart');
+    <script>//SCRIPTFIX itterate three times to populate each graph
+        const ctx = document.getElementById('myChartOne').getContext("2d");//SCRIPTFIX change element selected each itteration
       
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
+        const labels=[ //SCRIPTFIX pass in new info for all data and labels
+            '1/2023',
+            '2/2023',
+            '3/2023',
+        ];
+
+        const data={
+          labels,
+          datasets:[{
+              //data is the points on the graph
+              data: [35, 22, 17],
+              //this label is the label at the top of the graph
+              label: "Sales",
+          }],
+        };
+
+        const config={
+          type:'line',
+          data: data,
+          options:{
+            responsive:true,
           },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
+        };
+
+        const myChart=new Chart(ctx, config)
       </script>
 
 

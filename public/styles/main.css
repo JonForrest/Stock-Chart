@@ -1,3 +1,4 @@
+
 .adjust {
   display: flex;
   flex-wrap: nowrap;
@@ -23,6 +24,9 @@
     height: 50vh;
     background-color: azure;
     border-radius: 10%;
+    align-content: center;
+    display: flex;
+    align-items: center;
 }
 .optionPanel{
     display: flex;
