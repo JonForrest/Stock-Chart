@@ -9,3 +9,18 @@ var mykey = config.MY_KEY;
 []create backend app
 []create styles 
 []create ejs 
+
+
+Time Series Parameters: (all selected by TIME_SERIES_"")
+Intraday:Symbol,outputsize, interval, month
+Daily:Symbol, outputsize,
+Weekly:Symbol,
+Monthly:Symbol,
+
+intraday    output size is def. 100 entries(compact), (full) 30 days if month not selected, if month selected only info for month selected 
+daily       outputsize def. compact 100 entries, full is 20+ years of data     
+
+Number("10.33");       // returns 10.33
+
+I need an array full of strings to fill into the labels section of the graph
+I need and array of numbers to fit into the data section of the chart

@@ -11,11 +11,33 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var mykey = config.MY_KEY;
 
+
 app.get("/", async (req, res) => {
 
-  var timeSeries="TIME_SERIES_INTRADAY";//will need to be changed for option chosen
+
+  try {
+      
+    res.render("index.ejs", {});
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+
+  }
+
+});
+
+
+app.post("/", async (req, res) => {
+
+  console.log(req.body);
+
+
+
+  
+  var timeSeries="TIME_SERIES_INTRADAY";
   //var symbol=;
+  //var outputsize=;
   //var interval=;
+  //var month=;
 
   
 
@@ -24,20 +46,25 @@ app.get("/", async (req, res) => {
   var responseData= response.data['Time Series (5min)'];//rids response of metadata and isolates information imidiately useful
 
   //Generates Array for Intraday time and closing trade value
-  var dataPoints=[]
-  for(const x in responseData){
-    var closingValue=responseData[x]['4. close'];
-    dataPoints.push([x,closingValue]);
+  var dates=[];
+  var values=[];
+  for(const dateandtime in responseData){
+    var closingValue=responseData[dateandtime]['4. close'];
+    dates.push(dateandtime);
+    values.push(Number(closingValue));
   }
-  console.log(dataPoints);
+  console.log(dates);
+  console.log(values);
+
   console.log("done");
-  }else if(timeSeries===TIME_SERIES_DAILY){}
-  else if(timeSeries===TIME_SERIES_WEEKLY){}
-  else if(timeSeries===TIME_SERIES_MONTHLY){}
+  }else if(timeSeries==="TIME_SERIES_DAILY"){}
+  else if(timeSeries==="TIME_SERIES_WEEKLY"){}
+  else if(timeSeries==="TIME_SERIES_MONTHLY"){}
+  else{}
     
     try {
       
-      res.render("index.ejs", {});
+      res.render("index.ejs", {dates:dates,values:values});
     } catch (error) {
       console.error("Failed to make request:", error.message);
 

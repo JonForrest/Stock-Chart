@@ -13,16 +13,39 @@
     />
   </head>
   <body class="adjust">
-    
     <%# Division One %>
     <div id="divisionOne" class="division">
       <%# Div Per Stock Symbol %>
       <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChartOne" ></canvas>
+        <canvas id="myChartOne"></canvas>
       </div>
-      <div class="optionPanel"><%# Div for options %>
-    </div>
+      <div class="optionPanel">
+        <%# Div for options %>
+        <form action="/" method="POST">
+          <input
+            type="text"
+            name="textEntry"
+            placeholder="Stock Symbol"
+            class="symResizer"
+            autocomplete="off"
+          />
+          <label>
+            From:
+            <input
+              type="datetime-local"
+              name="from"
+              class="dateResizer"
+              min="2005-01-01T00:00"
+            />
+          </label>
+          <label>
+            To:
+            <input type="datetime-local" name="to" class="dateResizer" />
+          </label>
+          <button type="submit" value="Chart1" name="subFrom">Submit</button>
+        </form>
+      </div>
 
       <%# Write for each loop for various data sets %>
     </div>
@@ -32,10 +55,9 @@
       <%# Div Per Stock Symbol %>
       <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChartTwo" ></canvas>
+        <canvas id="myChartTwo"></canvas>
       </div>
-      <div class="optionPanel"><%# Div for options %>
-    </div>
+      <div class="optionPanel"><%# Div for options %></div>
 
       <%# Write for each loop for various data sets %>
     </div>
@@ -45,49 +67,87 @@
       <%# Div Per Stock Symbol %>
       <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChartThree" ></canvas>
+        <canvas id="myChartThree"></canvas>
       </div>
-      <div class="optionPanel"><%# Div for options %>
-    </div>
+      <div class="optionPanel"><%# Div for options %></div>
 
       <%# Write for each loop for various data sets %>
     </div>
-    
+
     <%# put your script tags below this config file for github %>
-    
+    <% var dates=dates %>
+    <% var values=values %>
     <script type="text/javascript" src="config.js"></script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>//SCRIPTFIX itterate three times to populate each graph
-        const ctx = document.getElementById('myChartOne').getContext("2d");//SCRIPTFIX change element selected each itteration
-      
-        const labels=[ //SCRIPTFIX pass in new info for all data and labels
-            '1/2023',
-            '2/2023',
-            '3/2023',
-        ];
 
-        const data={
-          labels,
-          datasets:[{
-              //data is the points on the graph
-              data: [35, 22, 17],
-              //this label is the label at the top of the graph
-              label: "Sales",
-          }],
-        };
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      //SCRIPTFIX itterate three times to populate each graph
+      const ctx = document.getElementById("myChartOne").getContext("2d"); //SCRIPTFIX change element selected each itteration
 
-        const config={
-          type:'line',
-          data: data,
-          options:{
-            responsive:true,
+      const labels = [
+        //SCRIPTFIX pass in new info for all data and labels
+        "1/2023",
+        "2/2023",
+        "3/2023",
+        "1/2023",
+        "2/2023",
+        "3/2023",
+        "1/2023",
+        "2/2023",
+        "3/2023",
+        "1/2023",
+        "2/2023",
+        "3/2023",
+        "2/2023",
+        "3/2023",
+        "1/2023",
+        "2/2023",
+        "3/2023",
+        "1/2023",
+        "2/2023",
+        "3/2023",
+        "1/2023",
+        "2/2023",
+        "3/2023"
+      ];
+
+      const data = {
+        labels,
+        datasets: [
+          {
+            //data is the points on the graph
+            data: [35, 22, 17, 35, 22, 17, 35, 22, 17, 35, 22, 17, 22, 17, 35, 22, 17, 35, 22, 17, 35, 22, 17],
+            //this label is the label at the top of the graph
+            label: "Sales",
           },
-        };
+        ],
+      };
 
-        const myChart=new Chart(ctx, config)
-      </script>
+      const config = {
+        type: "line",
+        data: data,
+        options: {
+          scales: {
+            x: {
+              ticks: {
+                display: true,
+                autoSkip: true,
+                maxTicksLimit: 15,
+                maxRotation: 90,
+                minRotation: 90,
+              },
+            },
+          },
+          responsive: true,
+          elements: {
+            point: {
+              radius: 0,
+            },
+          },
+        },
+      };
 
-
+      const myChart = new Chart(ctx, config);
+    </script>
   </body>
 </html>

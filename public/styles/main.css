@@ -34,9 +34,16 @@
     background-color: rgb(9, 255, 0);
     width: 100%;
     height:10vh;
+    justify-content: center;
 
 }
 
+.symResizer{
+  width:150px;
+}
+.dateResizer{
+  width:100px;
+}
 #divisionOne {
   
 }
