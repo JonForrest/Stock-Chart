@@ -53,17 +53,19 @@ app.post("/", async (req, res) => {
     dates.push(dateandtime);
     values.push(Number(closingValue));
   }
-  console.log(dates);
-  console.log(values);
+ 
 
-  console.log("done");
+  
   }else if(timeSeries==="TIME_SERIES_DAILY"){}
   else if(timeSeries==="TIME_SERIES_WEEKLY"){}
   else if(timeSeries==="TIME_SERIES_MONTHLY"){}
   else{}
     
     try {
-      
+      dates=dates.reverse();
+      values=values.reverse();
+      console.log(dates);
+      console.log(values);
       res.render("index.ejs", {dates:dates,values:values});
     } catch (error) {
       console.error("Failed to make request:", error.message);

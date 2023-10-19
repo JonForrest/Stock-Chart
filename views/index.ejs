@@ -80,43 +80,44 @@
     <script type="text/javascript" src="config.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <% if (dates&&values) {%>
     <script>
       //SCRIPTFIX itterate three times to populate each graph
       const ctx = document.getElementById("myChartOne").getContext("2d"); //SCRIPTFIX change element selected each itteration
-
-      const labels = [
-        //SCRIPTFIX pass in new info for all data and labels
-        "1/2023",
-        "2/2023",
-        "3/2023",
-        "1/2023",
-        "2/2023",
-        "3/2023",
-        "1/2023",
-        "2/2023",
-        "3/2023",
-        "1/2023",
-        "2/2023",
-        "3/2023",
-        "2/2023",
-        "3/2023",
-        "1/2023",
-        "2/2023",
-        "3/2023",
-        "1/2023",
-        "2/2023",
-        "3/2023",
-        "1/2023",
-        "2/2023",
-        "3/2023"
-      ];
+      var labels=<%- JSON.stringify(dates) %>;
+      // const labels = [
+      //   //SCRIPTFIX pass in new info for all data and labels
+      //   "1/2023",
+      //   "2/2023",
+      //   "3/2023",
+      //   "1/2023",
+      //   "2/2023",
+      //   "3/2023",
+      //   "1/2023",
+      //   "2/2023",
+      //   "3/2023",
+      //   "1/2023",
+      //   "2/2023",
+      //   "3/2023",
+      //   "2/2023",
+      //   "3/2023",
+      //   "1/2023",
+      //   "2/2023",
+      //   "3/2023",
+      //   "1/2023",
+      //   "2/2023",
+      //   "3/2023",
+      //   "1/2023",
+      //   "2/2023",
+      //   "3/2023"
+      // ];
 
       const data = {
         labels,
         datasets: [
           {
             //data is the points on the graph
-            data: [35, 22, 17, 35, 22, 17, 35, 22, 17, 35, 22, 17, 22, 17, 35, 22, 17, 35, 22, 17, 35, 22, 17],
+            data: <%-JSON.stringify(values)%>,
             //this label is the label at the top of the graph
             label: "Sales",
           },
@@ -149,5 +150,6 @@
 
       const myChart = new Chart(ctx, config);
     </script>
+    <% } %>
   </body>
 </html>
