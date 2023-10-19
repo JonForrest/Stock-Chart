@@ -85,32 +85,8 @@
       //SCRIPTFIX itterate three times to populate each graph
       const ctx = document.getElementById("myChartOne").getContext("2d"); //SCRIPTFIX change element selected each itteration
       var labels=<%- JSON.stringify(dates) %>;
-      // const labels = [
-      //   //SCRIPTFIX pass in new info for all data and labels
-      //   "1/2023",
-      //   "2/2023",
-      //   "3/2023",
-      //   "1/2023",
-      //   "2/2023",
-      //   "3/2023",
-      //   "1/2023",
-      //   "2/2023",
-      //   "3/2023",
-      //   "1/2023",
-      //   "2/2023",
-      //   "3/2023",
-      //   "2/2023",
-      //   "3/2023",
-      //   "1/2023",
-      //   "2/2023",
-      //   "3/2023",
-      //   "1/2023",
-      //   "2/2023",
-      //   "3/2023",
-      //   "1/2023",
-      //   "2/2023",
-      //   "3/2023"
-      // ];
+     
+  
 
       const data = {
         labels,
@@ -119,7 +95,7 @@
             //data is the points on the graph
             data: <%-JSON.stringify(values)%>,
             //this label is the label at the top of the graph
-            label: "Sales",
+            label: "Closing Price",
           },
         ],
       };

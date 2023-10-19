@@ -29,6 +29,10 @@ app.get("/", async (req, res) => {
 app.post("/", async (req, res) => {
 
   console.log(req.body);
+  var fromDate=new Date(req.body.from+"+00:00");
+  var toDate=new Date(req.body.to+"+00:00");
+  console.log(fromDate);
+  console.log(toDate);
 
 
 
@@ -48,12 +52,45 @@ app.post("/", async (req, res) => {
   //Generates Array for Intraday time and closing trade value
   var dates=[];
   var values=[];
+
+
+//console.log("dates after filter"+);
+
   for(const dateandtime in responseData){
     var closingValue=responseData[dateandtime]['4. close'];
     dates.push(dateandtime);
     values.push(Number(closingValue));
   }
  
+//console.log("dates before filter"+dates);
+// var testdate=dates[0];
+// console.log(testdate);
+// console.log(typeof testdate);
+// var testdateasdate=new Date(testdate+"+00:00");
+// console.log(testdateasdate);
+
+
+var selecteddatapoints=[];
+
+dates.forEach(isolateTimeRange);
+function isolateTimeRange(ittDate,ittindex){
+  
+  const morphedDate=new Date(ittDate+"+0000");
+  if(morphedDate.getTime()>=fromDate.getTime()&&morphedDate.getTime()<=toDate){
+    selecteddatapoints.push(ittindex);
+    
+  }
+
+}
+console.log(selecteddatapoints);
+
+var selecteddates=[];
+var selectedvalues=[];
+
+selecteddatapoints.forEach(function (pointselected){
+    selecteddates.push(dates[pointselected]);
+    selectedvalues.push(values[pointselected]);
+});
 
   
   }else if(timeSeries==="TIME_SERIES_DAILY"){}
@@ -62,11 +99,9 @@ app.post("/", async (req, res) => {
   else{}
     
     try {
-      dates=dates.reverse();
-      values=values.reverse();
-      console.log(dates);
-      console.log(values);
-      res.render("index.ejs", {dates:dates,values:values});
+     selecteddates=selecteddates.reverse();
+     selectedvalues=selectedvalues.reverse();
+      res.render("index.ejs", {dates:selecteddates,values:selectedvalues});
     } catch (error) {
       console.error("Failed to make request:", error.message);
 
