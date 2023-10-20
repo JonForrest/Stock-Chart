@@ -18,7 +18,7 @@
       <%# Div Per Stock Symbol %>
       <div class="chartContainer">
         <%# Div for line graph %>
-        <canvas id="myChartOne"></canvas>
+        <canvas id="myChartOne" class="charts" ></canvas>
       </div>
       <div class="optionPanel">
         <%# Div for options %>
@@ -26,24 +26,25 @@
           <input
             type="text"
             name="textEntry"
-            placeholder="Stock Symbol"
+            placeholder="Symbol"
             class="symResizer"
             autocomplete="off"
           />
-          <label>
+          <label class="labelformatter">
             From:
             <input
               type="datetime-local"
               name="from"
               class="dateResizer"
+              
               min="2005-01-01T00:00"
             />
           </label>
-          <label>
+          <label class="labelformatter">
             To:
             <input type="datetime-local" name="to" class="dateResizer" />
           </label>
-          <button type="submit" value="Chart1" name="subFrom">Submit</button>
+          <button type="submit" value="Chart1" class="subresizer" name="subFrom">Submit</button>
         </form>
       </div>
 
@@ -116,6 +117,7 @@
             },
           },
           responsive: true,
+          maintainAspectRatio:false,
           elements: {
             point: {
               radius: 0,

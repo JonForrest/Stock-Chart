@@ -21,7 +21,7 @@
 }
 .chartContainer{
     width:100%;
-    height: 50vh;
+    height: 60vh;
     background-color: azure;
     border-radius: 10%;
     align-content: center;
@@ -31,17 +31,31 @@
 .optionPanel{
     display: flex;
     flex-direction: row;
-    background-color: rgb(9, 255, 0);
+   
     width: 100%;
-    height:10vh;
+ 
     justify-content: center; 
 
 }
+.charts{
+  height: calc(85%) !important;
+}
+.labelformatter{
+  color:beige;
+}
 
 .symResizer{
-  width:150px;
+  width: calc(20%);
+
 }
 .dateResizer{
-  width:100px;
+  width: 24px;
+}
+.subresizer{
+  width: calc(20%);
+}
+
+::placeholder{
+  font-size: auto;
 }
 
