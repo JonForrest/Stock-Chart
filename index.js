@@ -28,11 +28,18 @@ app.post("/", async (req, res) => {
   var selectedvalues = [];
   var whatchart = req.body.subFrom;
   console.log("'From' from request body:" + req.body.from);
-  var fromDate = new Date(req.body.from + "+00:00");
-  var toDate = new Date(req.body.to + "+00:00");
+  var fromDate = new Date(req.body.from + "+0000");
+  var toDate = new Date(req.body.to + "+0000");
   var symbol = req.body.textEntry;
   symbol = symbol.toUpperCase();
   console.log(fromDate);
+  var startYear=fromDate.getFullYear();
+  var startMonth=fromDate.getMonth();
+  var endYear=toDate.getFullYear();
+  var endMonth=toDate.getMonth();
+  console.log(startYear);
+  console.log(startMonth);
+  
 
   //#endregion
 
@@ -41,6 +48,7 @@ app.post("/", async (req, res) => {
     `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=${mykey}`
   );
   var responseData = response.data["Time Series (5min)"]; //rids response of metadata and isolates information imidiately useful
+  console.log(responseData);
   //#endregion
 
   //#region populate dates and values arrays
