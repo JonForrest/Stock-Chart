@@ -24,3 +24,43 @@ Number("10.33");       // returns 10.33
 
 I need an array full of strings to fill into the labels section of the graph
 I need and array of numbers to fit into the data section of the chart
+
+
+////////How to handle large queries//////
+
+Say the user wants information 
+From: 2005-10-07 1:03PM 
+To: 2007-1-20 3:40PM 
+
+What would I have to do?
+
+-figure out what months(of years) to call the API for
+    - use .getFullYear() and .getMonth() on both giving you:
+        - 2005 - 10 (startyear and startmonth)
+        - 2007 - 1 (endyear and endmonth)
+    -write a for loop that populates a JSON  with year:month value pairs 
+    
+    
+    for(let year=startyear; year<=endyear; year++){
+        if(year=startyear){
+            for(let month=startmonth; month<=12; month++){
+                [call API for Year and Month perferablly through predefined fucnction]
+                [pushes returned data onto array ]
+            }
+        }
+        if(year=endyear){
+            for(let month=1; month<=endmonth; month++){
+                [call API for Year and Month perferablly through predefined fucnction]
+                [pushes returned data onto array ]
+            }
+
+        }
+        else{
+             for(let month=1; month<=12; month++){
+                [call API for Year and Month perferablly through predefined fucnction]
+                [pushes returned data onto array ]
+            }
+
+        }
+    }
+
