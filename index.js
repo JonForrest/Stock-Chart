@@ -34,21 +34,42 @@ app.post("/", async (req, res) => {
   symbol = symbol.toUpperCase();
   console.log(fromDate);
   var startYear=fromDate.getFullYear();
-  var startMonth=fromDate.getMonth();
+  var startMonth=fromDate.getMonth()+1;
   var endYear=toDate.getFullYear();
-  var endMonth=toDate.getMonth();
+  var endMonth=(toDate.getMonth())+1;
   console.log(startYear);
   console.log(startMonth);
+  console.log(endYear);
+  console.log(endMonth);
+  var testarray=[];
+
   
 
   //#endregion
+
+//#region write multiyear/month selection functionality
+console.log("loop started");
+for(let year=startYear; year<=endYear; year++){
+  if(year==startYear && year==endYear){for(let month=startMonth; month<=endMonth; month++){testarray.push(month);}}
+  else if(year==startYear && year!=endYear){for(let month=startMonth; month<=12; month++){ testarray.push(month);} }
+  else if(year==endYear && year!=startYear){for(let month=1; month<=endMonth; month++){testarray.push(month);} }
+  else{for(let month=1; month<=12; month++){testarray.push(month);}}
+}
+console.log("loop ended");
+console.log(testarray);
+
+
+
+
+//#endregion
+
 
   //#region call API
   const response = await axios.get(
     `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=${mykey}`
   );
   var responseData = response.data["Time Series (5min)"]; //rids response of metadata and isolates information imidiately useful
-  console.log(responseData);
+  
   //#endregion
 
   //#region populate dates and values arrays
