@@ -50,17 +50,13 @@ app.post("/", async (req, res) => {
 //#region write multiyear/month selection functionality
 console.log("loop started");
 for(let year=startYear; year<=endYear; year++){
-  if(year==startYear && year==endYear){for(let month=startMonth; month<=endMonth; month++){testarray.push(month);}}
-  else if(year==startYear && year!=endYear){for(let month=startMonth; month<=12; month++){ testarray.push(month);} }
-  else if(year==endYear && year!=startYear){for(let month=1; month<=endMonth; month++){testarray.push(month);} }
-  else{for(let month=1; month<=12; month++){testarray.push(month);}}
+  if(year==startYear && year==endYear){for(let month=startMonth; month<=endMonth; month++){testarray.push(month.toString().padStart(2, '0'));}}
+  else if(year==startYear && year!=endYear){for(let month=startMonth; month<=12; month++){ testarray.push(month.toString().padStart(2, '0'));} }
+  else if(year==endYear && year!=startYear){for(let month=1; month<=endMonth; month++){testarray.push(month.toString().padStart(2, '0'));} }
+  else{for(let month=1; month<=12; month++){testarray.push(month.toString().padStart(2, '0'));}}
 }
 console.log("loop ended");
 console.log(testarray);
-
-
-
-
 //#endregion
 
 
